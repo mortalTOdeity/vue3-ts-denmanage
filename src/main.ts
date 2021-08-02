@@ -3,7 +3,7 @@ import { globalRegister } from './global/index'
 
 import './service/axios_demo'
 import './service/index'
-import denRequest from './service/index'
+// import denRequest from './service/index'
 import rootApp from './App.vue'
 import router from './router'
 import store from './store'
