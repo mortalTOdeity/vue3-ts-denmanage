@@ -17,9 +17,11 @@ const loginModule: Module<ILoginState, IRootState> = {
       // 实现账户登录逻辑
       const loginResult = await accountLoginRequest(payload)
       console.log(loginResult)
+      return commit
     },
     phoneLoginAction({ commit }, payload: any) {
       console.log('执行accountLoginAction', payload)
+      return commit
     }
   },
   mutations: {},

@@ -5,7 +5,7 @@ import './assets/css/index.less'
 
 // import './service/axios_demo'
 import './service/index'
-import denRequest from './service/index'
+// import denRequest from './service/index'
 import rootApp from './App.vue'
 import router from './router'
 import store from './store'
@@ -36,11 +36,11 @@ app.mount('#app')
 //     }
 //   }
 // })
-interface DataType {
-  data: any
-  returnCode: string
-  success: boolean
-}
+// interface DataType {
+//   data: any
+//   returnCode: string
+//   success: boolean
+// }
 // denRequest
 //   .request<DataType>({
 //     url: '/home/multidata',
