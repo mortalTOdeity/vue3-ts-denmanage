@@ -1,6 +1,6 @@
 // 方法1： 根据process.env.NODE_ENV
 let BASE_URL = ''
-const item = 'http://152.136.185.210:5000'
+const item = 'http://152.136.185.210:5000/api'
 let TIME_OUT = 100000
 
 if (process.env.NODE_ENV === 'development') {

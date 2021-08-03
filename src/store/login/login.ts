@@ -16,7 +16,8 @@ const loginModule: Module<ILoginState, IRootState> = {
     async accountLoginAction({ commit }, payload: IAccount) {
       // 实现账户登录逻辑
       const loginResult = await accountLoginRequest(payload)
-      console.log(loginResult)
+      const { id, token } = loginResult.data
+      commit('changeToken', token)
       return commit
     },
     phoneLoginAction({ commit }, payload: any) {
@@ -24,7 +25,11 @@ const loginModule: Module<ILoginState, IRootState> = {
       return commit
     }
   },
-  mutations: {},
+  mutations: {
+    changeToken(state, token: string) {
+      state.token = token
+    }
+  },
   getters: {}
 }
 export default loginModule
