@@ -28,7 +28,6 @@ class DenRequest {
     // 添加所有的实例都有的拦截器
     this.instance.interceptors.request.use(
       (config) => {
-        console.log('所有的实例都有的拦截器：请求拦截成功')
         if (this.showLoading) {
           this.loading = ElLoading.service({
             lock: true,
@@ -39,13 +38,11 @@ class DenRequest {
         return config
       },
       (err) => {
-        console.log('所有的实例都有的拦截器：请求拦截失败')
         return err
       }
     )
     this.instance.interceptors.response.use(
       (res) => {
-        console.log('所有的实例都有的拦截器：响应拦截成功')
         // 将loading 移除
         setTimeout(() => {
           this.loading?.close()
@@ -53,25 +50,24 @@ class DenRequest {
 
         const data = res.data
         if (data.returnCode === '-1001') {
-          console.log('请求失败！')
+          return
         } else {
           return data
         }
       },
       (err) => {
-        console.log('所有的实例都有的拦截器：响应拦截失败')
         setTimeout(() => {
           this.loading?.close()
         }, 1000)
         // 判断httpErrorCode显示不同的错误信息
         if (err.response.status === 404) {
-          console.log('404 错误！')
+          return
         }
         return err
       }
     )
   }
-  request<T>(config: DenRequestConfig): Promise<T> {
+  request<T>(config: DenRequestConfig<T>): Promise<T> {
     return new Promise((resolve, reject) => {
       if (config.interceptors?.requestInterceptor) {
         config = config.interceptors.requestInterceptor(config)
@@ -84,7 +80,7 @@ class DenRequest {
         .then((res) => {
           // 单个请求对数据的处理
           if (config.interceptors?.responseInterceptor) {
-            // res = config.interceptors.responseInterceptor(res)
+            res = config.interceptors.responseInterceptor(res)
           }
           console.log(res)
           // 2. 设置showLoading 不会影响下一个请求
@@ -99,16 +95,16 @@ class DenRequest {
         })
     })
   }
-  get<T>(config: DenRequestConfig): Promise<T> {
+  get<T>(config: DenRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'GET' })
   }
-  post<T>(config: DenRequestConfig): Promise<T> {
+  post<T>(config: DenRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'POST' })
   }
-  delete<T>(config: DenRequestConfig): Promise<T> {
+  delete<T>(config: DenRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'DELETE' })
   }
-  patch<T>(config: DenRequestConfig): Promise<T> {
+  patch<T>(config: DenRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'PATCH' })
   }
 }

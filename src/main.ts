@@ -1,7 +1,9 @@
 import { createApp, App } from 'vue'
 import { globalRegister } from './global/index'
+import 'normalize.css'
+import './assets/css/index.less'
 
-import './service/axios_demo'
+// import './service/axios_demo'
 import './service/index'
 import denRequest from './service/index'
 import rootApp from './App.vue'
@@ -17,8 +19,8 @@ app.use(router)
 app.use(store)
 app.mount('#app')
 
-console.log(process.env.VUE_APP_aazz)
-console.log(process.env.VUE_APP_MyName)
+// console.log(process.env.VUE_APP_aazz)
+// console.log(process.env.VUE_APP_MyName)
 
 // denRequest.request({
 //   url: '/home/multidata',
@@ -39,14 +41,15 @@ interface DataType {
   returnCode: string
   success: boolean
 }
-denRequest
-  .request<DataType>({
-    url: '/home/multidata',
-    // method: 'GET',
-    showLoading: true
-  })
-  .then((res) => {
-    console.log(res.data)
-    console.log(res.returnCode)
-    console.log(res.success)
-  })
+// denRequest
+//   .request<DataType>({
+//     url: '/home/multidata',
+//     // method: 'GET',
+//     showLoading: true
+//   })
+//   .then((res) => {
+//     return res
+// console.log(res.data)
+// console.log(res.returnCode)
+// console.log(res.success)
+// })

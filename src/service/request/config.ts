@@ -1,9 +1,11 @@
 // 方法1： 根据process.env.NODE_ENV
 let BASE_URL = ''
+const item = 'http://152.136.185.210:5000'
 let TIME_OUT = 100000
 
 if (process.env.NODE_ENV === 'development') {
-  BASE_URL = 'http://123.207.32.32:8000/'
+  BASE_URL = item
+  console.log('-----', BASE_URL)
   TIME_OUT = 100000
 } else if (process.env.NODE_ENV === 'production') {
   BASE_URL = 'http://chen.org/prod'
