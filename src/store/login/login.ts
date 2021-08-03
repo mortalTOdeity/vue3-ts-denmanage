@@ -18,6 +18,7 @@ const loginModule: Module<ILoginState, IRootState> = {
       const loginResult = await accountLoginRequest(payload)
       const { id, token } = loginResult.data
       commit('changeToken', token)
+      console.log(id)
       return commit
     },
     phoneLoginAction({ commit }, payload: any) {
