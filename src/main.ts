@@ -9,6 +9,7 @@ import './service/index'
 import rootApp from './App.vue'
 import router from './router'
 import store from './store'
+import { setupStore } from './store'
 
 const app: App = createApp(rootApp)
 //注册element+
@@ -18,6 +19,7 @@ globalRegister(app)
 app.use(router)
 app.use(store)
 app.mount('#app')
+setupStore()
 
 // console.log(process.env.VUE_APP_aazz)
 // console.log(process.env.VUE_APP_MyName)

@@ -1,6 +1,7 @@
 // service 统一出口
 import DenRequest from './request/index'
 import { BASE_URL, TIME_OUT } from './request/config'
+import localCache from '@/utils/cache'
 
 const denRequest = new DenRequest({
   baseURL: BASE_URL,
@@ -8,7 +9,7 @@ const denRequest = new DenRequest({
   interceptors: {
     requestInterceptor: (config) => {
       // 携带token 的拦截
-      const token = ''
+      const token = localCache.getCache('token')
       if (token) {
         config.headers.Authorization = `Bearer ${token}`
       }

@@ -82,7 +82,7 @@ class DenRequest {
           if (config.interceptors?.responseInterceptor) {
             res = config.interceptors.responseInterceptor(res)
           }
-          console.log(res)
+          // console.log(res)
           // 2. 设置showLoading 不会影响下一个请求
           this.showLoading = DEFAULT_LOADING
           // 3. 将结果resolve 出去
