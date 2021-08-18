@@ -8,7 +8,11 @@ import {
   ElTabs,
   ElTabPane,
   ElCheckbox,
-  ElLink
+  ElLink,
+  ElContainer,
+  ElHeader,
+  ElMain,
+  ElAside
 } from 'element-plus'
 import { App } from 'vue'
 const components = [
@@ -20,7 +24,11 @@ const components = [
   ElTabs,
   ElTabPane,
   ElCheckbox,
-  ElLink
+  ElLink,
+  ElContainer,
+  ElHeader,
+  ElMain,
+  ElAside
 ]
 
 export default function (app: App): void {
