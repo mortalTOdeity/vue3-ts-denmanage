@@ -2,7 +2,8 @@
   <div class="nav-menu">
     <div class="logo">
       <img class="img" src="~@/assets/img/logo.svg" alt="logo" />
-      <span v-if="!collapse" class="title">Vue3+TS</span>
+      <i class="el-icon-edit"></i>
+      <span v-if="!collapse" class="title">我的项目</span>
     </div>
     <el-menu
       default-active="2"
@@ -19,7 +20,6 @@
           <el-submenu :index="item.id + ''">
             <template #title>
               <i v-if="item.icon" :class="item.icon"></i>
-              <!-- <span>{{ item.icon }}</span> -->
               <span>{{ item.name }}</span>
             </template>
             <!-- 遍历里面的item -->
@@ -49,16 +49,25 @@ import { useStore } from '@/store'
 // import {IRootState} from '@/store/types'
 
 export default defineComponent({
+  props: {
+    collapse: {
+      type: Boolean,
+      default: false
+    }
+  },
   setup() {
     const store = useStore()
     const userMenus = computed(() => {
       return store.state.login.userMenus
     })
     console.log(store.state.login.userMenus)
-    for (let item of store.state.login.userMenus) {
-      item.icon = 'el-icon-' + item.icon
-    }
-    console.log(store.state.login.userMenus)
+    // for (let item of store.state.login.userMenus) {
+    //   let item1 = 'el-icon-' + item.icon
+    //   item.icon = item1
+    //   console.log(item.icon)
+    //   console.log(item)
+    // }
+    // console.log(store.state.login.userMenus)
     return { userMenus }
   }
 })
