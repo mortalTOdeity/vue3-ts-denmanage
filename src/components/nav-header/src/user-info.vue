@@ -28,7 +28,8 @@ export default defineComponent({
       })
     const circleUrl = 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic3.zhimg.com%2Fv2-4e96f1110cb872407e837d4fc1440f96_1200x500.jpg&refer=http%3A%2F%2Fpic3.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632223662&t=72368b42c4bb26c1e5a6085b5fac0555'
     return {
-      name
+      name,
+      circleUrl
     }
   }
 })
