@@ -51,9 +51,6 @@ export default defineComponent({
     flex: 1;
     padding: 0 20px;
     border: 0;
-    /deep/ .el-dropdown-link focusing {
-      border: 0;
-    }
   }
 }
 </style>

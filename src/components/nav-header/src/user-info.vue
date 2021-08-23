@@ -2,8 +2,8 @@
   <div class="user-info">
     <el-dropdown>
       <span class="el-dropdown-link">
-        <el-avatar :size="size" :src="circleUrl"></el-avatar>
-        <span>{{name}}</span>
+        <el-avatar size="small" :src="circleUrl"></el-avatar>
+        <span>{{ name }}</span>
       </span>
       <template #dropdown>
         <el-dropdown-menu>
@@ -21,12 +21,13 @@ import { defineComponent, computed } from 'vue'
 import { useStore } from '@/store'
 
 export default defineComponent({
-  setup () {
+  setup() {
     const store = useStore()
     const name = computed(() => {
-      return store.state.login.userInfo
-      })
-    const circleUrl = 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic3.zhimg.com%2Fv2-4e96f1110cb872407e837d4fc1440f96_1200x500.jpg&refer=http%3A%2F%2Fpic3.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632223662&t=72368b42c4bb26c1e5a6085b5fac0555'
+      return store.state.login.userInfo.name
+    })
+    const circleUrl =
+      'https://img2.baidu.com/it/u=499820173,2483639539&fm=253&fmt=auto&app=120&f=JPEG?w=210&h=264'
     return {
       name,
       circleUrl
@@ -35,12 +36,13 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-  /* .el-dropdown-link {
-    cursor: pointer;
-    color: #409EFF;
-  } */
-  .el-icon-arrow-down {
-    font-size: 12px;
+<style scoped lang="less">
+.el-dropdown-link {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  span {
+    margin-left: 10px;
   }
+}
 </style>

@@ -1,6 +1,12 @@
 <template>
   <div class="user">
-    <h2>user</h2>
+    <div class="search">
+      <el-form>
+        <el-form-item> </el-form-item>
+      </el-form>
+    </div>
+    <div class="content"></div>
+    <div>user page</div>
   </div>
 </template>
 

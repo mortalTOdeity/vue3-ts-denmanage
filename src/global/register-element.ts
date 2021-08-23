@@ -20,7 +20,8 @@ import {
   ElIcon,
   ElDropdown,
   ElDropdownItem,
-  ElDropdownMenu
+  ElDropdownMenu,
+  ElAvatar
 } from 'element-plus'
 import { App } from 'vue'
 const components = [
@@ -44,7 +45,8 @@ const components = [
   ElIcon,
   ElDropdown,
   ElDropdownItem,
-  ElDropdownMenu
+  ElDropdownMenu,
+  ElAvatar
 ]
 
 export default function (app: App): void {
