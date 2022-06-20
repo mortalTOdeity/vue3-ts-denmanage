@@ -27,3 +27,10 @@ npm run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### 提交更新
+
+```
+npx cz
+```
