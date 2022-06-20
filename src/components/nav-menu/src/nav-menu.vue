@@ -6,7 +6,7 @@
       <span v-if="!collapse" class="title">我的项目</span>
     </div>
     <el-menu
-      default-active="2"
+      :default-active="defaultValue"
       class="el-menu-vertical"
       :collapse="collapse"
       background-color="#0c2135"
@@ -44,9 +44,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, ref } from 'vue'
 import { useStore } from '@/store'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
+import { pathMapToMenu } from '@/utils/map-menus'
 // import {IRootState} from '@/store/types'
 
 export default defineComponent({
@@ -62,6 +63,11 @@ export default defineComponent({
       return store.state.login.userMenus
     })
     const router = useRouter()
+    const route = useRoute()
+    const currentPath = route.path
+
+    const menu = pathMapToMenu(userMenus.value, currentPath)
+    const defaultValue = ref(menu.id + '')
     const handleMenuItemClick = (item: any) => {
       router.push({
         path: item.url ?? '/not-found'
@@ -73,8 +79,8 @@ export default defineComponent({
     //   console.log(item.icon)
     //   console.log(item)
     // }
-    // console.log(store.state.login.userMenus)
-    return { userMenus, handleMenuItemClick }
+    // console.log(store.state.login.userMenus)s
+    return { userMenus, handleMenuItemClick, defaultValue }
   }
 })
 </script>

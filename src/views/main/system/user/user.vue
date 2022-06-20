@@ -1,21 +1,19 @@
 <template>
   <div class="user">
-    <div class="search">
-      <den-form v-bind="searchFormConfig"></den-form>
-    </div>
+    <page-search :searchFormConfig="searchFormConfig" />
     <div class="content"></div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import DenForm from '@/base-ui/form'
+import PageSearch from '@/components/page-search'
 import { searchFormConfig } from './config/search.config'
 
 export default defineComponent({
   name: 'user',
   components: {
-    DenForm
+    PageSearch
   },
   setup() {
     return {
@@ -25,4 +23,12 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.header {
+  color: red;
+}
+.handle-btns {
+  text-align: right;
+  padding: 0 50px 20px 0;
+}
+</style>

@@ -1,8 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 import localCache from '@/utils/cache'
-import { mapMenusToRoutes } from '@/utils/map-menus'
-import store from '@/store'
+
+import { firstMenu } from '@/utils/map-menus'
+// import store from '@/store'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -37,13 +38,16 @@ router.beforeEach((to) => {
     if (!token) {
       return '/login'
     }
-    const userMenus = (store.state as any).login.userMenus
-    const routes = mapMenusToRoutes(userMenus)
-    console.log('changeUserMenus')
+    // const userMenus = (store.state as any).login.userMenus
+    // const routes = mapMenusToRoutes(userMenus)
+    // console.log('changeUserMenus')
 
-    routes.forEach((route) => {
-      router.addRoute('main', route)
-    })
+    // routes.forEach((route) => {
+    //   router.addRoute('main', route)
+    // })
+  }
+  if (to.path === '/main') {
+    return firstMenu.url
   }
 })
 

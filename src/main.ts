@@ -16,10 +16,10 @@ const app: App = createApp(rootApp)
 
 globalRegister(app)
 // app.use(globalRegister)
-app.use(router)
 app.use(store)
-app.mount('#app')
 setupStore()
+app.use(router)
+app.mount('#app')
 
 // console.log(process.env.VUE_APP_aazz)
 // console.log(process.env.VUE_APP_MyName)
